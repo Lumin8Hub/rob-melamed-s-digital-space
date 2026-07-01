@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Timecode } from "./Timecode";
+import { useAudio } from "./AudioProvider";
 
 const links = [
   { to: "/work", label: "WORK" },
