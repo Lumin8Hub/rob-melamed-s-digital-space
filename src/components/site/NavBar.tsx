@@ -13,7 +13,7 @@ export function NavBar() {
       <nav className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-5 md:px-10">
         <Link
           to="/"
-          className="mono text-[12px] tracking-[0.18em] text-[color:var(--reel)] hover:text-[color:var(--amber)] transition-colors"
+          className="focus-ring mono text-[12px] tracking-[0.18em] text-[color:var(--reel)] hover:text-[color:var(--amber)] transition-colors"
         >
           ROB&nbsp;MELAMED
         </Link>
@@ -25,7 +25,7 @@ export function NavBar() {
                 <Link
                   to={l.to}
                   activeProps={{ className: "text-[color:var(--amber)]" }}
-                  className="mono text-[11px] tracking-[0.22em] text-[color:var(--reel)] hover:text-[color:var(--amber)] transition-colors"
+                  className="focus-ring mono text-[11px] tracking-[0.22em] text-[color:var(--reel)] hover:text-[color:var(--amber)] transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -47,7 +47,7 @@ export function NavBar() {
             key={l.to}
             to={l.to}
             activeProps={{ className: "text-[color:var(--amber)]" }}
-            className="mono text-[10px] tracking-[0.22em] text-[color:var(--reel)]"
+            className="focus-ring mono text-[10px] tracking-[0.22em] text-[color:var(--reel)]"
           >
             {l.label}
           </Link>

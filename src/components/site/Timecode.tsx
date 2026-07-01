@@ -2,9 +2,17 @@ import { useEffect, useState } from "react";
 
 /**
  * Live SMPTE-style timecode HH:MM:SS:FF at 24 fps.
- * Static frame when prefers-reduced-motion.
+ * - Only re-renders when the formatted string changes (~24×/sec, not ~60).
+ * - Pauses the rAF loop when the tab is hidden.
+ * - Static frame when prefers-reduced-motion.
  */
-export function Timecode({ className = "", startOffsetMs }: { className?: string; startOffsetMs?: number }) {
+export function Timecode({
+  className = "",
+  startOffsetMs,
+}: {
+  className?: string;
+  startOffsetMs?: number;
+}) {
   const [tc, setTc] = useState(() => format(startOffsetMs ?? 0));
 
   useEffect(() => {
@@ -14,17 +22,39 @@ export function Timecode({ className = "", startOffsetMs }: { className?: string
 
     const start = performance.now();
     let raf = 0;
+    let last = "";
+
     const tick = () => {
       const elapsed = performance.now() - start + (startOffsetMs ?? 0);
-      setTc(format(elapsed));
+      const next = format(elapsed);
+      if (next !== last) {
+        last = next;
+        setTc(next);
+      }
       raf = requestAnimationFrame(tick);
     };
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+      } else {
+        raf = requestAnimationFrame(tick);
+      }
+    };
+
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, [startOffsetMs]);
 
   return (
-    <span className={`mono text-[11px] tracking-tight text-[color:var(--amber)] tabular-nums ${className}`}>
+    <span
+      className={`mono text-[11px] tracking-tight text-[color:var(--amber)] tabular-nums ${className}`}
+    >
       {tc}
     </span>
   );

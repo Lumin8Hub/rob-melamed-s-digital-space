@@ -45,22 +45,22 @@ export function EntryGate({ onEnter }: { onEnter?: (soundOn: boolean) => void })
         </div>
         <h1 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-[1.05]">
           Enter.
-          <span className="block text-[color:var(--amber)]">Sound on.</span>
+          <span className="block text-[color:var(--amber)]">Locked to picture.</span>
         </h1>
         <p className="mt-5 mono text-[11px] tracking-[0.18em] text-[color:var(--stone)] max-w-sm">
-          THIS SITE OPENS WITH AUDIO. IT IS THE ACTUAL PRODUCT.
+          BEST EXPERIENCED WITH SOUND.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
           <button
             onClick={() => enter(true)}
-            className="mono text-[11px] tracking-[0.25em] px-6 py-3 border border-[color:var(--amber)] text-[color:var(--amber)] hover:bg-[color:var(--amber)] hover:text-[color:var(--ink)] transition-colors"
+            className="focus-ring mono text-[11px] tracking-[0.25em] px-6 py-3 border border-[color:var(--amber)] text-[color:var(--amber)] hover:bg-[color:var(--amber)] hover:text-[color:var(--ink)] transition-colors"
           >
             ▸ &nbsp; ENTER &mdash; SOUND ON
           </button>
           <button
             onClick={() => enter(false)}
-            className="mono text-[10px] tracking-[0.2em] text-[color:var(--stone)] hover:text-[color:var(--reel)] transition-colors px-4 py-3"
+            className="focus-ring mono text-[10px] tracking-[0.2em] text-[color:var(--stone)] hover:text-[color:var(--reel)] transition-colors px-4 py-3"
           >
             Continue muted
           </button>

@@ -97,7 +97,7 @@ function ContactPage() {
               <select
                 name="type"
                 required
-                className="mono text-[13px] bg-transparent border-b border-[color:var(--ink)]/30 focus:border-[color:var(--tally)] outline-none py-3"
+                className="focus-ring mono text-[13px] bg-transparent border-b border-[color:var(--ink)]/30 focus:border-[color:var(--tally)] py-3"
                 defaultValue=""
               >
                 <option value="" disabled>Select…</option>
@@ -117,7 +117,7 @@ function ContactPage() {
                 rows={6}
                 required
                 placeholder="Air date, deliverables, references, anything you'd send a composer…"
-                className="text-base bg-transparent border border-[color:var(--ink)]/20 focus:border-[color:var(--tally)] outline-none p-4 resize-y placeholder:text-[color:var(--stone)]"
+                className="focus-ring text-base bg-transparent border border-[color:var(--ink)]/20 focus:border-[color:var(--tally)] p-4 resize-y placeholder:text-[color:var(--stone)]"
               />
             </div>
 
@@ -127,7 +127,7 @@ function ContactPage() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="mono text-[11px] tracking-[0.25em] px-6 py-3.5 bg-[color:var(--ink)] text-[color:var(--reel)] hover:bg-[color:var(--tally)] transition-colors disabled:opacity-60"
+                className="focus-ring mono text-[11px] tracking-[0.25em] px-6 py-3.5 bg-[color:var(--ink)] text-[color:var(--reel)] hover:bg-[color:var(--tally)] transition-colors disabled:opacity-60"
               >
                 {status === "sending" ? "▸ SENDING…" : "▸ SEND BRIEF"}
               </button>
@@ -214,7 +214,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         placeholder={placeholder}
-        className="text-base bg-transparent border-b border-[color:var(--ink)]/30 focus:border-[color:var(--tally)] outline-none py-3 placeholder:text-[color:var(--stone)]"
+        className="focus-ring text-base bg-transparent border-b border-[color:var(--ink)]/30 focus:border-[color:var(--tally)] py-3 placeholder:text-[color:var(--stone)]"
       />
     </div>
   );
