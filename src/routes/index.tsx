@@ -71,10 +71,12 @@ function Index() {
             <div className="relative z-10 h-full flex flex-col justify-end">
               <div className="mx-auto max-w-[1400px] w-full px-5 md:px-10 pb-14 md:pb-20 reveal">
                 <h1 className="text-[clamp(2rem,5.5vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.035em] max-w-4xl">
-                  A one-person post-audio house{" "}
-                  <span className="text-[color:var(--amber)]">for brands that want the budget on screen,</span>{" "}
-                  not in the boardroom.
+                  The music is never the point.{" "}
+                  <span className="text-[color:var(--amber)]">The story is.</span>
                 </h1>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--stone)]">
+                  Score, casting, voice direction and final mix for national campaigns — every decision through one set of ears.
+                </p>
 
 
                 <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
