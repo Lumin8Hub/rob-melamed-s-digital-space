@@ -90,9 +90,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-      { rel: "manifest", href: "/site.webmanifest" },
+      // Prefix static /public assets with Vite's BASE_URL so they resolve under
+      // GitHub Pages' subpath (/<repo>/) as well as under root ("/").
+      { rel: "icon", type: "image/svg+xml", href: `${import.meta.env.BASE_URL}favicon.svg` },
+      { rel: "apple-touch-icon", sizes: "180x180", href: `${import.meta.env.BASE_URL}apple-touch-icon.png` },
+      { rel: "manifest", href: `${import.meta.env.BASE_URL}site.webmanifest` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

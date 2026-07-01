@@ -1,26 +1,15 @@
-name: Deploy to GitHub Pages (org root site)
+name: Deploy to GitHub Pages
 
-# Builds the static, prerendered site and deploys it to the ORG ROOT Pages repo,
-# served at https://lumin8hub.github.io/ (root path, base "/").
+# Builds the site as a static, prerendered bundle and publishes it to this
+# repo's GitHub Pages site (served at https://<owner>.github.io/<repo>/).
 #
-# Why a separate repo: this repo is Lovable-connected, and a *project* repo's
-# Pages is served from a subpath (…/rob-melamed-s-digital-space/), which this
-# TanStack Start toolchain can't prerender cleanly. The org root site is served
-# from "/", which builds cleanly. Source stays here; only the built output is
-# pushed to lumin8hub.github.io.
+# The build is gated behind GITHUB_PAGES=true — Lovable's own Cloudflare build
+# never sets it, so the in-editor preview and Lovable deploys are unaffected.
 #
-# ── ONE-TIME SETUP (until done, the deploy step skips and the run stays green) ──
-#   1. Create an empty repo:  Lumin8Hub/lumin8hub.github.io
-#   2. Create a token with write access to that repo:
-#        • Fine-grained PAT → Repository access: lumin8hub.github.io →
-#          Permissions: Contents: Read and write
-#        (or a classic PAT with "repo" scope)
-#   3. Add it here as a secret:  this repo → Settings → Secrets and variables →
-#        Actions → New repository secret → name: ORG_PAGES_TOKEN
-#   4. After the first successful deploy, enable Pages on lumin8hub.github.io:
-#        Settings → Pages → Build and deployment → Deploy from a branch →
-#        Branch: main → / (root)
-# ───────────────────────────────────────────────────────────────────────────────
+# ── ONE-TIME SETUP ──────────────────────────────────────────────────────────
+#   Repo → Settings → Pages → Build and deployment → Source: "GitHub Actions".
+#   No secrets, no PAT, no extra repos required.
+# ────────────────────────────────────────────────────────────────────────────
 
 on:
   push:
@@ -29,13 +18,15 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: pages-org-root-deploy
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,29 +40,45 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build static site (prerendered, base "/")
+      - name: Compute Pages base path
+        id: base
+        run: |
+          # Project Pages sites are served under /<repo>/. User/org sites
+          # (repo named "<owner>.github.io") are served at "/".
+          repo="${GITHUB_REPOSITORY##*/}"
+          owner_lc="$(echo "${GITHUB_REPOSITORY%%/*}" | tr '[:upper:]' '[:lower:]')"
+          if [ "$repo" = "${owner_lc}.github.io" ]; then
+            base="/"
+          else
+            base="/${repo}/"
+          fi
+          echo "base=${base}" >> "$GITHUB_OUTPUT"
+          echo "Pages base: ${base}"
+
+      - name: Build static site
         run: bun run build
         env:
           GITHUB_PAGES: "true"
+          PAGES_BASE: ${{ steps.base.outputs.base }}
 
       - name: Add Pages fallback files
         run: |
           touch dist/client/.nojekyll
+          # SPA fallback for deep-link refreshes on unknown routes.
           cp dist/client/index.html dist/client/404.html
 
-      - name: Deploy to lumin8hub.github.io
-        env:
-          TOKEN: ${{ secrets.ORG_PAGES_TOKEN }}
-        run: |
-          if [ -z "$TOKEN" ]; then
-            echo "::warning::ORG_PAGES_TOKEN secret is not set — skipping deploy. Complete the one-time setup in .github/workflows/deploy.yml."
-            exit 0
-          fi
-          cd dist/client
-          git init -q -b main
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -qm "Deploy from rob-melamed-s-digital-space@${GITHUB_SHA::7}"
-          git push -f "https://x-access-token:${TOKEN}@github.com/Lumin8Hub/lumin8hub.github.io.git" main
-          echo "Deployed to https://lumin8hub.github.io/"
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
