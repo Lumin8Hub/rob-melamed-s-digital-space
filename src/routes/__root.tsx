@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "One-person post-audio house for national brands. Score, casting, voice direction and final mix from a single room in Toronto.",
+          "Composer, audio producer and voice director for national brand campaigns. Score, casting, voice and final mix — one set of ears, start to finish. Toronto.",
       },
       { name: "author", content: "Rob Melamed" },
       { name: "theme-color", content: "#0C0C0E" },

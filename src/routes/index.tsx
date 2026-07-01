@@ -14,12 +14,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A one-person post-audio house for brands that want the budget on screen, not in the boardroom. Score, casting, voice direction and mix from one set of ears in Toronto.",
+          "Composer, audio producer and voice director for national brand campaigns. Score, casting, voice and final mix — one set of ears, start to finish. Toronto.",
       },
       { property: "og:title", content: "Rob Melamed — Post-Audio" },
       {
         property: "og:description",
-        content: "One-person post-audio house for national brands. Toronto.",
+        content: "One set of ears on every frame of sound. National campaign audio from Toronto.",
       },
       { property: "og:image", content: reelPoster.url },
       { property: "og:url", content: "/" },
