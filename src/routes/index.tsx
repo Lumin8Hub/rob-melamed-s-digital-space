@@ -128,8 +128,8 @@ function Index() {
           <div className="md:col-span-8 md:col-start-5">
             <p className="text-2xl md:text-3xl leading-[1.25] tracking-[-0.02em] text-[color:var(--reel)]">
               One set of ears from first cue to final mix. No account layer, no
-              hand-offs, no departmental drift. The music is never the point{" "}
-              <span className="text-[color:var(--amber)]">— the story is.</span>
+              hand-offs, no departmental drift.{" "}
+              <span className="text-[color:var(--amber)]">One person answers for the whole soundtrack.</span>
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-6 mono text-[11px] tracking-[0.14em] text-[color:var(--stone)]">
               <div>
