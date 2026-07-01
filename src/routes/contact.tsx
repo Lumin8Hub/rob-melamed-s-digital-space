@@ -72,10 +72,8 @@ function ContactPage() {
     <PageFrame surface="reel">
       <div className="bg-[color:var(--reel)] text-[color:var(--ink)]">
         <section className="mx-auto max-w-[1400px] px-5 md:px-10 pt-14 md:pt-20 pb-10">
-          <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-5">
-            — 00:03 &nbsp;/&nbsp; CONTACT —
-          </div>
           <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold tracking-[-0.035em] leading-[1.02] max-w-3xl">
+
             Tell me about <span className="text-[color:var(--tally)]">the spot.</span>
           </h1>
           <p className="mt-5 max-w-xl text-[color:var(--ink)]/75 leading-relaxed">
