@@ -40,16 +40,14 @@ export function EntryGate({ onEnter }: { onEnter?: (soundOn: boolean) => void })
       </div>
 
       <div className="flex flex-col items-center px-6 text-center max-w-xl">
-        <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-6">
-          — REEL START —
-        </div>
         <h1 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-[1.05]">
-          Enter.
-          <span className="block text-[color:var(--amber)]">Locked to picture.</span>
+          This is a listening room.
+          <span className="block text-[color:var(--amber)]">Sound on, if you can.</span>
         </h1>
         <p className="mt-5 mono text-[11px] tracking-[0.18em] text-[color:var(--stone)] max-w-sm">
-          BEST EXPERIENCED WITH SOUND.
+          SCORE, CASTING, AND MIX — BUILT TO BE HEARD, NOT SKIMMED.
         </p>
+
 
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
           <button
