@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { PageFrame } from "@/components/site/PageFrame";
-import { EntryGate } from "@/components/site/EntryGate";
 import { Timecode } from "@/components/site/Timecode";
+import { useAudio } from "@/components/site/AudioProvider";
 import reelPosterUrl from "@/assets/reel-poster.jpg";
 import heroVideoUrl from "@/assets/hero-video.mp4";
 
