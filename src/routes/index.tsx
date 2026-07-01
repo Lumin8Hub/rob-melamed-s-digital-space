@@ -45,7 +45,7 @@ function Index() {
             {/* Placeholder poster — swap for <video muted loop playsInline autoPlay> with Rob's reel MP4 */}
             <img
               src={reelPoster.url}
-              alt="Reel — locked to picture"
+              alt="Rob Melamed reel — background still"
               className="absolute inset-0 h-full w-full object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--ink)]/40 via-[color:var(--ink)]/20 to-[color:var(--ink)]" />
