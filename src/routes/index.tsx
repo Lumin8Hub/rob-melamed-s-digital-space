@@ -99,9 +99,6 @@ function Index() {
         {/* TRUST STRIP */}
         <section className="border-b hairline">
           <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-10">
-            <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-6">
-              — WORKED WITH —
-            </div>
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4">
               {trust.map((name) => (
                 <li
@@ -114,6 +111,7 @@ function Index() {
             </ul>
           </div>
         </section>
+
 
         {/* POSITIONING SECTION */}
         <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28 grid md:grid-cols-12 gap-10 items-start">
