@@ -38,7 +38,7 @@ function WorkPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-[color:var(--stone)] leading-relaxed">
             Selected commercial, broadcast and screen pieces. Click any tile to play the
-            full spot. Vimeo IDs are wired in as each cut clears.
+            full spot.
           </p>
         </div>
       </section>
@@ -53,7 +53,6 @@ function WorkPage() {
 
         <div className="mt-16 border-t hairline pt-8 mono text-[10px] tracking-[0.22em] text-[color:var(--stone)] flex flex-wrap items-center justify-between gap-4">
           <span>— END OF LOG —</span>
-          <span>MORE CUES TO BE ADDED · Q1 2027</span>
         </div>
       </section>
     </PageFrame>

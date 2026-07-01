@@ -27,16 +27,7 @@ export function Footer() {
               LinkedIn ↗
             </a>
           </li>
-          <li>
-            <a
-              href="https://www.imdb.com/name/nm/"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[color:var(--amber)] transition-colors"
-            >
-              IMDb ↗
-            </a>
-          </li>
+          {/* IMDb — restore once Rob's profile URL is confirmed. */}
         </ul>
 
         <div className="md:text-right space-y-2">

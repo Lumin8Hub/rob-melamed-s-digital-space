@@ -112,9 +112,6 @@ function Index() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 mono text-[10px] tracking-[0.14em] text-[color:var(--stone)] max-w-lg">
-              Logo lockups pending client sign-off. Wordmarks shown in-mono for now.
-            </p>
           </div>
         </section>
 

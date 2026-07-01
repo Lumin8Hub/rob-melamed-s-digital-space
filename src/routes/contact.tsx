@@ -22,14 +22,49 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+// Rob's form endpoint (Formspree / Web3Forms). Until this is set, the form
+// falls back to a pre-filled email so a brief is never silently lost.
+const FORM_ENDPOINT = "";
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to Formspree or Web3Forms endpoint once Rob provides the key.
-    // Example: fetch("https://formspree.io/f/XXXX", { method: "POST", body: new FormData(e.currentTarget) })
-    setStatus("sent");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // No endpoint configured yet → open a pre-filled email so the brief still reaches Rob.
+    if (!FORM_ENDPOINT) {
+      const body = [
+        `Name: ${data.get("name") ?? ""}`,
+        `Agency / Studio: ${data.get("agency") ?? ""}`,
+        `Email: ${data.get("email") ?? ""}`,
+        `Project type: ${data.get("type") ?? ""}`,
+        `Timeline: ${data.get("timeline") ?? ""}`,
+        "",
+        `${data.get("message") ?? ""}`,
+      ].join("\n");
+      window.location.href = `mailto:rob@robmelamed.com?subject=${encodeURIComponent(
+        `New brief — ${data.get("name") ?? ""}`,
+      )}&body=${encodeURIComponent(body)}`;
+      setStatus("sent");
+      return;
+    }
+
+    try {
+      setStatus("sending");
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -91,13 +126,19 @@ function ContactPage() {
             <div className="pt-4 flex items-center gap-4">
               <button
                 type="submit"
-                className="mono text-[11px] tracking-[0.25em] px-6 py-3.5 bg-[color:var(--ink)] text-[color:var(--reel)] hover:bg-[color:var(--tally)] transition-colors"
+                disabled={status === "sending"}
+                className="mono text-[11px] tracking-[0.25em] px-6 py-3.5 bg-[color:var(--ink)] text-[color:var(--reel)] hover:bg-[color:var(--tally)] transition-colors disabled:opacity-60"
               >
-                ▸ SEND BRIEF
+                {status === "sending" ? "▸ SENDING…" : "▸ SEND BRIEF"}
               </button>
               {status === "sent" && (
                 <span className="mono text-[10px] tracking-[0.2em] text-[color:var(--tally)]">
                   — RECEIVED. THANK YOU. —
+                </span>
+              )}
+              {status === "error" && (
+                <span className="mono text-[10px] tracking-[0.2em] text-[color:var(--tally)]">
+                  — DIDN'T SEND — EMAIL rob@robmelamed.com —
                 </span>
               )}
             </div>
@@ -131,16 +172,7 @@ function ContactPage() {
                     LinkedIn ↗
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://www.imdb.com/name/nm/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-[color:var(--tally)] transition-colors"
-                  >
-                    IMDb ↗
-                  </a>
-                </li>
+                {/* IMDb — restore once Rob's profile URL is confirmed. */}
               </ul>
             </div>
             <div>

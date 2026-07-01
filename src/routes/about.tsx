@@ -82,21 +82,14 @@ function AboutPage() {
             with six people.
           </p>
           <p>
-            Fifteen years in, after{" "}
-            <span className="mono text-[0.8em] tracking-[0.05em] text-[color:var(--stone)]">
-              [X years — confirm]
-            </span>{" "}
-            composing at Grayson Matthews and a film-scoring foundation from Berklee,
-            I've learned the same thing twice: the music is never the point. The story
-            is.
+            Fifteen years in, after composing at Grayson Matthews and a film-scoring
+            foundation from Berklee, I've learned the same thing twice: the music is
+            never the point. The story is.
           </p>
           <p>
             On screen, my longtime scoring partner Ryan McLarnon and I have picked up
-            two Canadian Screen Award nominations{" "}
-            <span className="mono text-[0.8em] tracking-[0.05em] text-[color:var(--stone)]">
-              [+ ASCAP Screen Music Award — confirm exact wording]
-            </span>
-            , most recently for the Hallmark/Lionsgate series{" "}
+            two Canadian Screen Award nominations, most recently for the
+            Hallmark/Lionsgate series{" "}
             <em className="text-[color:var(--ink)]">Mistletoe Murders</em>, with credits
             on CTV, CBC and Disney Channel.
           </p>

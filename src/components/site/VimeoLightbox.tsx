@@ -57,9 +57,6 @@ export function VimeoLightbox({
                 — CLIP PENDING —
               </div>
               <div className="text-[color:var(--reel)] font-medium max-w-md">{caption}</div>
-              <div className="mono text-[10px] tracking-[0.18em] text-[color:var(--stone)] mt-4 max-w-sm">
-                Vimeo ID to be wired in on Rob's approval of the reel cut.
-              </div>
             </div>
           )}
         </div>
