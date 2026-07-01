@@ -15,7 +15,9 @@ export const Route = createFileRoute("/work")({
       { property: "og:title", content: "Work — Rob Melamed" },
       {
         property: "og:description",
-        content: "The reel grid: brand · role · year. Every piece scored to picture.",
+        content:
+          "A working reel of national commercial, broadcast, and screen work — score, casting, and mix, one composer start to finish.",
+
       },
       { property: "og:url", content: "/work" },
     ],
