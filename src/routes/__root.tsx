@@ -144,7 +144,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <AudioProvider>
+        <EntryGate />
+        <Outlet />
+      </AudioProvider>
     </QueryClientProvider>
   );
 }
