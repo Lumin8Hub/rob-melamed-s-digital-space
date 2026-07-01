@@ -49,14 +49,12 @@ function AboutPage() {
         {/* Header + portrait */}
         <section className="mx-auto max-w-[1400px] px-5 md:px-10 pt-14 md:pt-20 pb-10 grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-7">
-            <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-5">
-              — 00:02 &nbsp;/&nbsp; ABOUT —
-            </div>
             <h1 className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold tracking-[-0.035em] leading-[1.02]">
               One set of ears,{" "}
               <span className="text-[color:var(--tally)]">start to finish.</span>
             </h1>
           </div>
+
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden border border-[color:var(--ink)]/10">
               <img

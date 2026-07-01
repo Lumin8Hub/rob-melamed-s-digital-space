@@ -45,7 +45,7 @@ function Index() {
             {/* Placeholder poster — swap for <video muted loop playsInline autoPlay> with Rob's reel MP4 */}
             <img
               src={reelPoster.url}
-              alt="Reel — locked to picture"
+              alt="Rob Melamed reel — background still"
               className="absolute inset-0 h-full w-full object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--ink)]/40 via-[color:var(--ink)]/20 to-[color:var(--ink)]" />
@@ -62,14 +62,12 @@ function Index() {
             {/* Hero copy */}
             <div className="relative z-10 h-full flex flex-col justify-end">
               <div className="mx-auto max-w-[1400px] w-full px-5 md:px-10 pb-14 md:pb-20 reveal">
-                <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-5">
-                  — LOCKED TO PICTURE —
-                </div>
                 <h1 className="text-[clamp(2rem,5.5vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.035em] max-w-4xl">
                   A one-person post-audio house{" "}
                   <span className="text-[color:var(--amber)]">for brands that want the budget on screen,</span>{" "}
                   not in the boardroom.
                 </h1>
+
 
                 <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <Link
@@ -101,9 +99,6 @@ function Index() {
         {/* TRUST STRIP */}
         <section className="border-b hairline">
           <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-10">
-            <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-6">
-              — WORKED WITH —
-            </div>
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4">
               {trust.map((name) => (
                 <li
@@ -117,12 +112,10 @@ function Index() {
           </div>
         </section>
 
+
         {/* POSITIONING SECTION */}
         <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28 grid md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-4 mono text-[10px] tracking-[0.3em] text-[color:var(--stone)]">
-            — 00:01 &nbsp;/&nbsp; POSITIONING —
-          </div>
-          <div className="md:col-span-8">
+          <div className="md:col-span-8 md:col-start-5">
             <p className="text-2xl md:text-3xl leading-[1.25] tracking-[-0.02em] text-[color:var(--reel)]">
               One set of ears from first cue to final mix. No account layer, no
               hand-offs, no departmental drift. The music is never the point{" "}
@@ -131,39 +124,38 @@ function Index() {
             <div className="mt-10 grid sm:grid-cols-3 gap-6 mono text-[11px] tracking-[0.14em] text-[color:var(--stone)]">
               <div>
                 <div className="text-[color:var(--amber)] mb-1">SCORE</div>
-                Composed to picture, cue by cue.
+                Written to the edit, not around it.
               </div>
               <div>
                 <div className="text-[color:var(--amber)] mb-1">VOICE</div>
-                Casting and direction, in-room or remote.
+                Casting and direction, wherever the session needs to happen.
               </div>
               <div>
                 <div className="text-[color:var(--amber)] mb-1">MIX</div>
-                Delivered locked, broadcast-spec.
+                Delivered ready to air. No revisions chasing revisions.
               </div>
             </div>
           </div>
         </section>
 
+
         {/* FEATURED CTA */}
         <section className="border-t hairline">
           <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-3">
-                — NEXT CUE —
-              </div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em]">
-                The work is <span className="text-[color:var(--amber)]">the site.</span>
+                Hear it before you <span className="text-[color:var(--amber)]">take my word for it.</span>
               </h2>
             </div>
             <Link
               to="/work"
               className="mono text-[11px] tracking-[0.25em] px-6 py-3.5 border border-[color:var(--amber)] text-[color:var(--amber)] hover:bg-[color:var(--amber)] hover:text-[color:var(--ink)] transition-colors self-start md:self-auto"
             >
-              ▸ OPEN THE REEL GRID
+              ▸ WATCH THE REEL
             </Link>
           </div>
         </section>
+
       </PageFrame>
     </>
   );
