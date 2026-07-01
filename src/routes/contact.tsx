@@ -13,8 +13,9 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact — Rob Melamed" },
       {
         property: "og:description",
-        content: "Tell me about the spot. Frictionless brief intake.",
+        content: "Send the brief. Direct line to Rob — no account layer in between.",
       },
+
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
