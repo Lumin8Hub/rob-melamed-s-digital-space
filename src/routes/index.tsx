@@ -143,21 +143,19 @@ function Index() {
         <section className="border-t hairline">
           <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-3">
-                — NEXT CUE —
-              </div>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em]">
-                The work is <span className="text-[color:var(--amber)]">the site.</span>
+                Hear it before you <span className="text-[color:var(--amber)]">take my word for it.</span>
               </h2>
             </div>
             <Link
               to="/work"
               className="mono text-[11px] tracking-[0.25em] px-6 py-3.5 border border-[color:var(--amber)] text-[color:var(--amber)] hover:bg-[color:var(--amber)] hover:text-[color:var(--ink)] transition-colors self-start md:self-auto"
             >
-              ▸ OPEN THE REEL GRID
+              ▸ WATCH THE REEL
             </Link>
           </div>
         </section>
+
       </PageFrame>
     </>
   );
