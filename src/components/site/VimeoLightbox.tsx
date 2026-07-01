@@ -59,9 +59,16 @@ export function VimeoLightbox({
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-center px-6">
               <div className="mono text-[11px] tracking-[0.25em] text-[color:var(--amber)] mb-3">
-                — CLIP PENDING —
+                — FULL SPOT ON REQUEST —
               </div>
-              <div className="text-[color:var(--reel)] font-medium max-w-md">{caption}</div>
+              <div className="text-[color:var(--reel)] font-medium max-w-md mb-4">{caption}</div>
+              <a
+                href={`mailto:rob@robmelamed.com?subject=${encodeURIComponent(`Request: ${caption}`)}`}
+                className="mono text-[10px] tracking-[0.2em] text-[color:var(--stone)] hover:text-[color:var(--amber)] transition-colors max-w-md"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Client work is shared privately. Email rob@robmelamed.com for the cut.
+              </a>
             </div>
           )}
         </div>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageFrame } from "@/components/site/PageFrame";
-import portraitUrl from "@/assets/rob-portrait.png";
+import portraitUrl from "@/assets/rob-portrait.webp";
 
 const portrait = { url: portraitUrl };
 

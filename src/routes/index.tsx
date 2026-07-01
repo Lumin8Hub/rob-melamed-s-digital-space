@@ -14,12 +14,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A one-person post-audio house for brands that want the budget on screen, not in the boardroom. Score, casting, voice direction and mix from one set of ears in Toronto.",
+          "Composer, audio producer and voice director for national brand campaigns. Score, casting, voice and final mix — one set of ears, start to finish. Toronto.",
       },
       { property: "og:title", content: "Rob Melamed — Post-Audio" },
       {
         property: "og:description",
-        content: "One-person post-audio house for national brands. Toronto.",
+        content: "One set of ears on every frame of sound. National campaign audio from Toronto.",
       },
       { property: "og:image", content: reelPoster.url },
       { property: "og:url", content: "/" },
@@ -71,10 +71,12 @@ function Index() {
             <div className="relative z-10 h-full flex flex-col justify-end">
               <div className="mx-auto max-w-[1400px] w-full px-5 md:px-10 pb-14 md:pb-20 reveal">
                 <h1 className="text-[clamp(2rem,5.5vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.035em] max-w-4xl">
-                  A one-person post-audio house{" "}
-                  <span className="text-[color:var(--amber)]">for brands that want the budget on screen,</span>{" "}
-                  not in the boardroom.
+                  The music is never the point.{" "}
+                  <span className="text-[color:var(--amber)]">The story is.</span>
                 </h1>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[color:var(--stone)]">
+                  Score, casting, voice direction and final mix for national campaigns — every decision through one set of ears.
+                </p>
 
 
                 <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -126,8 +128,8 @@ function Index() {
           <div className="md:col-span-8 md:col-start-5">
             <p className="text-2xl md:text-3xl leading-[1.25] tracking-[-0.02em] text-[color:var(--reel)]">
               One set of ears from first cue to final mix. No account layer, no
-              hand-offs, no departmental drift. The music is never the point{" "}
-              <span className="text-[color:var(--amber)]">— the story is.</span>
+              hand-offs, no departmental drift.{" "}
+              <span className="text-[color:var(--amber)]">One person answers for the whole soundtrack.</span>
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-6 mono text-[11px] tracking-[0.14em] text-[color:var(--stone)]">
               <div>
