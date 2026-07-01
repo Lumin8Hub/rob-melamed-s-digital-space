@@ -62,14 +62,12 @@ function Index() {
             {/* Hero copy */}
             <div className="relative z-10 h-full flex flex-col justify-end">
               <div className="mx-auto max-w-[1400px] w-full px-5 md:px-10 pb-14 md:pb-20 reveal">
-                <div className="mono text-[10px] tracking-[0.3em] text-[color:var(--stone)] mb-5">
-                  — LOCKED TO PICTURE —
-                </div>
                 <h1 className="text-[clamp(2rem,5.5vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.035em] max-w-4xl">
                   A one-person post-audio house{" "}
                   <span className="text-[color:var(--amber)]">for brands that want the budget on screen,</span>{" "}
                   not in the boardroom.
                 </h1>
+
 
                 <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <Link
