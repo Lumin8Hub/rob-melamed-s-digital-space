@@ -1,3 +1,10 @@
+import mcdonaldsThumb from "@/assets/mcdonalds.webp";
+import walmartThumb from "@/assets/walmart.webp";
+import hyundaiThumb from "@/assets/hyundai.webp";
+import kiaThumb from "@/assets/kia.webp";
+import ricolaThumb from "@/assets/ricola.webp";
+import mistletoeThumb from "@/assets/mistletoe-murders.webp";
+
 export type WorkPiece = {
   slug: string;
   brand: string;
@@ -10,6 +17,8 @@ export type WorkPiece = {
   duration: string;
   /** Ambient poster gradient (mono/typographic — no stock imagery). */
   tone: "warm" | "cool" | "amber" | "smoke";
+  /** Tile background thumbnail. */
+  thumbnail: string;
 };
 
 export const work: WorkPiece[] = [
@@ -22,6 +31,7 @@ export const work: WorkPiece[] = [
     vimeoId: "841234835", // PLACEHOLDER — swap for Rob's real cut before public launch
     duration: "00:00:60:00",
     tone: "amber",
+    thumbnail: mcdonaldsThumb,
   },
   {
     slug: "walmart-worldcup",
@@ -32,6 +42,7 @@ export const work: WorkPiece[] = [
     vimeoId: "849191180", // PLACEHOLDER — closest tonal match; swap for Rob's real cut
     duration: "00:00:30:00",
     tone: "warm",
+    thumbnail: walmartThumb,
   },
   {
     slug: "hyundai-launch",
@@ -42,6 +53,7 @@ export const work: WorkPiece[] = [
     vimeoId: "366980399", // PLACEHOLDER — swap for Rob's real cut before public launch
     duration: "00:00:45:00",
     tone: "cool",
+    thumbnail: hyundaiThumb,
   },
   {
     slug: "kia-broadcast",
@@ -52,6 +64,7 @@ export const work: WorkPiece[] = [
     vimeoId: "950724607", // PLACEHOLDER — swap for Rob's real cut before public launch
     duration: "00:00:30:00",
     tone: "smoke",
+    thumbnail: kiaThumb,
   },
   {
     slug: "ricola-voice",
@@ -62,6 +75,7 @@ export const work: WorkPiece[] = [
     vimeoId: "241684222", // PLACEHOLDER — swap for Rob's real cut before public launch
     duration: "00:00:30:00",
     tone: "amber",
+    thumbnail: ricolaThumb,
   },
   {
     slug: "mistletoe-murders",
@@ -72,5 +86,6 @@ export const work: WorkPiece[] = [
     vimeoId: "1173075548", // PLACEHOLDER — closest tonal match; swap for real trailer
     duration: "00:44:00:00",
     tone: "cool",
+    thumbnail: mistletoeThumb,
   },
 ];

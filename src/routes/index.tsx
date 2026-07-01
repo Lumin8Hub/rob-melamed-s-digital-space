@@ -4,6 +4,7 @@ import { PageFrame } from "@/components/site/PageFrame";
 import { EntryGate } from "@/components/site/EntryGate";
 import { Timecode } from "@/components/site/Timecode";
 import reelPosterUrl from "@/assets/reel-poster.jpg";
+import heroVideoUrl from "@/assets/hero-video.mp4";
 
 const reelPoster = { url: reelPosterUrl };
 
