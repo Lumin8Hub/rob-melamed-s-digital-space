@@ -35,7 +35,14 @@ export function NavBar() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggle}
+              className="focus-ring mono text-[9px] tracking-[0.2em] text-[color:var(--stone)] hover:text-[color:var(--amber)] transition-colors"
+              aria-label={soundOn ? "Mute background audio" : "Unmute background audio"}
+            >
+              {soundOn ? "SOUND ON" : "SOUND OFF"}
+            </button>
             <span className="mono text-[9px] tracking-[0.2em] text-[color:var(--stone)]">TC</span>
             <Timecode />
           </div>
