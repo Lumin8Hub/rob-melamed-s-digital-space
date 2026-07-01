@@ -115,10 +115,7 @@ function Index() {
 
         {/* POSITIONING SECTION */}
         <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28 grid md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-4 mono text-[10px] tracking-[0.3em] text-[color:var(--stone)]">
-            — 00:01 &nbsp;/&nbsp; POSITIONING —
-          </div>
-          <div className="md:col-span-8">
+          <div className="md:col-span-8 md:col-start-5">
             <p className="text-2xl md:text-3xl leading-[1.25] tracking-[-0.02em] text-[color:var(--reel)]">
               One set of ears from first cue to final mix. No account layer, no
               hand-offs, no departmental drift. The music is never the point{" "}
@@ -127,19 +124,20 @@ function Index() {
             <div className="mt-10 grid sm:grid-cols-3 gap-6 mono text-[11px] tracking-[0.14em] text-[color:var(--stone)]">
               <div>
                 <div className="text-[color:var(--amber)] mb-1">SCORE</div>
-                Composed to picture, cue by cue.
+                Written to the edit, not around it.
               </div>
               <div>
                 <div className="text-[color:var(--amber)] mb-1">VOICE</div>
-                Casting and direction, in-room or remote.
+                Casting and direction, wherever the session needs to happen.
               </div>
               <div>
                 <div className="text-[color:var(--amber)] mb-1">MIX</div>
-                Delivered locked, broadcast-spec.
+                Delivered ready to air. No revisions chasing revisions.
               </div>
             </div>
           </div>
         </section>
+
 
         {/* FEATURED CTA */}
         <section className="border-t hairline">
