@@ -9,6 +9,7 @@ const links = [
 ] as const;
 
 export function NavBar() {
+  const { soundOn, toggle } = useAudio();
   return (
     <header className="sticky top-0 z-40 border-b hairline bg-[color:var(--ink)]/85 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--ink)]/70">
       <nav className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-5 md:px-10">
