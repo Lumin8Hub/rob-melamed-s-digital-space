@@ -43,11 +43,20 @@ function Index() {
         {/* HERO */}
         <section className="relative">
           <div className="relative h-[86vh] min-h-[560px] w-full overflow-hidden">
-            {/* Placeholder poster — swap for <video muted loop playsInline autoPlay> with Rob's reel MP4 */}
+            <video
+              src={heroVideoUrl}
+              poster={reelPoster.url}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover opacity-80 motion-reduce:hidden"
+            />
             <img
               src={reelPoster.url}
               alt="Rob Melamed reel — background still"
-              className="absolute inset-0 h-full w-full object-cover opacity-80"
+              className="absolute inset-0 h-full w-full object-cover opacity-80 hidden motion-reduce:block"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--ink)]/40 via-[color:var(--ink)]/20 to-[color:var(--ink)]" />
 
