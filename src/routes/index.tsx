@@ -3,7 +3,9 @@ import { useState } from "react";
 import { PageFrame } from "@/components/site/PageFrame";
 import { EntryGate } from "@/components/site/EntryGate";
 import { Timecode } from "@/components/site/Timecode";
-import reelPoster from "@/assets/reel-poster.jpg.asset.json";
+import reelPosterUrl from "@/assets/reel-poster.jpg";
+
+const reelPoster = { url: reelPosterUrl };
 
 export const Route = createFileRoute("/")({
   head: () => ({

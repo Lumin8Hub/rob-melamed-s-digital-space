@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageFrame } from "@/components/site/PageFrame";
-import portrait from "@/assets/rob-portrait.png.asset.json";
+import portraitUrl from "@/assets/rob-portrait.png";
+
+const portrait = { url: portraitUrl };
 
 export const Route = createFileRoute("/about")({
   head: () => ({
