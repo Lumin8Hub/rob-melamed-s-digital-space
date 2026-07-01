@@ -1,31 +1,20 @@
 import { useEffect, useState } from "react";
 import { Timecode } from "./Timecode";
+import { useAudio } from "./AudioProvider";
 
-const KEY = "rm-entered";
-
-export function EntryGate({ onEnter }: { onEnter?: (soundOn: boolean) => void }) {
+export function EntryGate() {
+  const { hasChosen, enter } = useAudio();
   const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window === "undefined") return;
-    const already = sessionStorage.getItem(KEY);
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (already || reduce) {
-      onEnter?.(already === "sound");
-      return;
-    }
-    setVisible(true);
-  }, [onEnter]);
+  }, []);
 
-  const enter = (soundOn: boolean) => {
-    sessionStorage.setItem(KEY, soundOn ? "sound" : "muted");
-    setVisible(false);
-    onEnter?.(soundOn);
-  };
+  const reduce =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (!mounted || !visible) return null;
+  if (!mounted || hasChosen || reduce) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[color:var(--ink)] text-[color:var(--reel)]">

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useAudio } from "./AudioProvider";
 
 export function VimeoLightbox({
   vimeoId,
@@ -9,15 +10,19 @@ export function VimeoLightbox({
   caption: string;
   onClose: () => void;
 }) {
+  const { duck, unduck } = useAudio();
+
   useEffect(() => {
+    duck();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
+      unduck();
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [onClose, duck, unduck]);
 
   return (
     <div
