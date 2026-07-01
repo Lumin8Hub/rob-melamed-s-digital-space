@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Volume2, VolumeX } from "lucide-react";
 import { Timecode } from "./Timecode";
 import { useAudio } from "./AudioProvider";
 
@@ -38,12 +39,19 @@ export function NavBar() {
           <div className="flex items-center gap-3">
             <button
               onClick={toggle}
-              className="focus-ring mono text-[9px] tracking-[0.2em] text-[color:var(--stone)] hover:text-[color:var(--amber)] transition-colors"
+              className={`focus-ring group flex items-center gap-2 mono text-[10px] tracking-[0.2em] px-2.5 py-1.5 border transition-colors ${
+                soundOn
+                  ? "border-[color:var(--amber)] text-[color:var(--amber)]"
+                  : "border-[color:var(--stone)]/40 text-[color:var(--stone)] hover:text-[color:var(--amber)] hover:border-[color:var(--amber)]"
+              }`}
               aria-label={soundOn ? "Mute background audio" : "Unmute background audio"}
+              aria-pressed={soundOn}
+              title={soundOn ? "Mute background audio" : "Unmute background audio"}
             >
-              {soundOn ? "SOUND ON" : "SOUND OFF"}
+              {soundOn ? <Volume2 className="w-3.5 h-3.5" aria-hidden /> : <VolumeX className="w-3.5 h-3.5" aria-hidden />}
+              <span className="hidden sm:inline">{soundOn ? "SOUND ON" : "MUTED"}</span>
             </button>
-            <span className="mono text-[9px] tracking-[0.2em] text-[color:var(--stone)]">TC</span>
+            <span className="hidden md:inline mono text-[9px] tracking-[0.2em] text-[color:var(--stone)]">TC</span>
             <Timecode />
           </div>
         </div>
