@@ -20,8 +20,20 @@ export function WorkTile({ piece, index }: { piece: WorkPiece; index: number }) 
         aria-label={`Play ${piece.brand} — ${piece.title}`}
       >
         <div
-          className={`relative aspect-video overflow-hidden border hairline ${toneClass[piece.tone]} transition-transform duration-500 group-hover:scale-[1.015]`}
+          className={`relative aspect-video overflow-hidden border hairline transition-transform duration-500 group-hover:scale-[1.015]`}
         >
+          {/* Thumbnail base layer */}
+          <img
+            src={piece.thumbnail}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* Tone color-wash overlay */}
+          <div className={`absolute inset-0 mix-blend-multiply opacity-70 ${toneClass[piece.tone]}`} />
+          {/* Ink scrim for text legibility */}
+          <div className="absolute inset-0 bg-[color:var(--ink)]/25" />
           {/* Corner burn-in */}
           <div className="absolute top-3 left-3 flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--tally)] opacity-0 group-hover:opacity-100 group-hover:tally-blink transition-opacity" />
