@@ -33,11 +33,10 @@ export const Route = createFileRoute("/")({
 const trust = ["McDonald's", "Walmart", "Hyundai", "Kia", "Hallmark", "Lionsgate"];
 
 function Index() {
-  const [soundOn, setSoundOn] = useState(false);
+  const { soundOn } = useAudio();
 
   return (
     <>
-      <EntryGate onEnter={setSoundOn} />
       <PageFrame surface="ink">
         {/* HERO */}
         <section className="relative">
